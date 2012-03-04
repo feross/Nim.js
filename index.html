@@ -11,22 +11,48 @@
 
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Henny+Penny' rel='stylesheet' type='text/css'>
 
   <script src="js/libs/modernizr-2.5.3.min.js"></script>
   <!-- <script src="js/libs/prefixfree.js"></script> -->
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-  <header>
 
+
+
+  <header class="clearfix">
+    <div class="status">15 stones left. Computer's Turn.</div>
+    <button class="go punch">Go >></button>
   </header>
+
   <div role="main">
 
-    <div class="stone" />
+    <div class="stones clearfix">
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+      <div class="stone"></div>
+    </div>
 
   </div>
-  <footer>
 
+  <footer>
+    <h1>Scores</h1>
+    <div class="computerScore"><h2>Computer</h2><span>0</span></div>
+    <div class="humanScore"><h2>Human</h2><span>0</span></div>
+    <div class="info">Players take turns removing one, two, or three stones at a time from a pile that begins with 15 stones. <strong>The player who removes the last stone wins the game.</strong></div>
   </footer>
 
 
@@ -34,6 +60,7 @@
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
   <script src="js/plugins.js"></script>
+  <script src="js/libs/jquery-ui-1.8.18.custom.min.js"></script>
   <script src="js/script.js"></script>
 
 </body>
