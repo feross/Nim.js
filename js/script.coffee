@@ -14,6 +14,7 @@ isValidMove = ->
 handleHumanMove = ->
   if (isValidMove())
     playTurn 0
+    playerTurn = 1
   else
     alert "Invalid move!"
 
@@ -39,7 +40,7 @@ handleComputerWin = ->
   numSelectedStones = 0
 
   $('.computerScore span').text computerWins
-  $('.status').html "#{numStones} stones left."
+  $('.status').html "#{numStones} stones left. Computer's Turn."
   delay 1000, ->
     doComputerMove();
 
@@ -54,8 +55,6 @@ playTurn = (player) ->
 
   if (player == 0)
     doComputerMove()
-
-  playerTurn = (playerTurn == 1) ? 0 : 1
 
 doComputerMove = ->
   numSelectedStones =
@@ -75,6 +74,7 @@ doComputerMove = ->
   msDelay += 500
   delay msDelay, ->
     playTurn 1
+    playerTurn = 0
 
     if (numStones == 0)
       console.log playerTurn + " wins!"
@@ -96,5 +96,4 @@ $ ->
         numSelectedStones += 1
         elem.addClass 'selected'
 
-  delay 1000, ->
-    doComputerMove()
+  doComputerMove()

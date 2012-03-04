@@ -21,7 +21,8 @@
 
   handleHumanMove = function() {
     if (isValidMove()) {
-      return playTurn(0);
+      playTurn(0);
+      return playerTurn = 1;
     } else {
       return alert("Invalid move!");
     }
@@ -48,23 +49,19 @@
     playerTurn = 1;
     numSelectedStones = 0;
     $('.computerScore span').text(computerWins);
-    $('.status').html("" + numStones + " stones left.");
+    $('.status').html("" + numStones + " stones left. Computer's Turn.");
     return delay(1000, function() {
       return doComputerMove();
     });
   };
 
   playTurn = function(player) {
-    var _ref;
     numStones -= numSelectedStones;
     console.log(player + " removed " + numSelectedStones + " stones.");
     console.log(numStones + " stones left.");
     console.log("-------");
     removeSelectedStones();
-    if (player === 0) doComputerMove();
-    return playerTurn = (_ref = playerTurn === 1) != null ? _ref : {
-      0: 1
-    };
+    if (player === 0) return doComputerMove();
   };
 
   doComputerMove = function() {
@@ -81,6 +78,7 @@
     msDelay += 500;
     return delay(msDelay, function() {
       playTurn(1);
+      playerTurn = 0;
       if (numStones === 0) {
         console.log(playerTurn + " wins!");
         return handleComputerWin();
@@ -105,9 +103,7 @@
         }
       }
     });
-    return delay(1000, function() {
-      return doComputerMove();
-    });
+    return doComputerMove();
   });
 
 }).call(this);
